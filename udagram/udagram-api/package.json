@@ -8,8 +8,8 @@
   "main": "server.ts",
   "scripts": {
     "start": "node ./www/server.js",
-    "tsc": "npx tsc",
-    "dev": "npx ts-node-dev --respawn --transpile-only ./src/server.ts",
+    "tsc": "tsc",
+    "dev": "ts-node-dev --respawn --transpile-only ./src/server.ts",
     "prod": "npx tsc && node ./www/server.js",
     "clean": "rm -rf www/ || true",
     "deploy": "npm run build && eb list && eb use udagram-api-dev && eb deploy",
@@ -22,14 +22,14 @@
   "dependencies": {
     "@types/bcryptjs": "2.4.2",
     "@types/jsonwebtoken": "^8.3.2",
-    "aws-sdk": "^2.429.0",
+    "aws-sdk": "^2.1285.0",
     "bcryptjs": "2.4.3",
-    "body-parser": "^1.18.3",
+    "body-parser": "^1.20.1",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "email-validator": "^2.0.4",
-    "express": "^4.16.4",
-    "jsonwebtoken": "^8.5.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
     "pg": "^8.7.1",
     "reflect-metadata": "^0.1.13",
     "sequelize": "^6.5.0",
@@ -48,8 +48,8 @@
     "chai-http": "^4.2.1",
     "eslint": "^6.8.0",
     "eslint-config-google": "^0.14.0",
-    "mocha": "^6.1.4",
-    "ts-node-dev": "^1.0.0-pre.32",
+    "mocha": "^10.2.0",
+    "ts-node-dev": "^2.0.0",
     "typescript": "^4.2.3"
   }
 }
