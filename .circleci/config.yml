@@ -40,11 +40,11 @@ jobs:
             echo "Build the frontend app"
             npm run frontend:build
       # Build the backend API      
-      - run:
-          name: API Build
-          command: |
-            echo "Build the backend API"
-            npm run api:build
+      # - run:
+      #     name: API Build
+      #     command: |
+      #       echo "Build the backend API"
+      #       npm run api:build
   # deploy step will run only after manual approval
   deploy:
     docker:
