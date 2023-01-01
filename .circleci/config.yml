@@ -13,7 +13,9 @@ jobs:
     steps:
       # install node and checkout code
       - node/install:
-          node-version: '14.15'         
+          node-version: '14.15'      
+      - eb/setup
+      - aws-cli/setup
       - checkout
       # Use root level package.json to install dependencies in the frontend app
       - run:
@@ -39,42 +41,56 @@ jobs:
           command: |
             echo "Build the frontend app"
             npm run frontend:build
-      # Build the backend API      
-      # - run:
-      #     name: API Build
-      #     command: |
-      #       echo "Build the backend API"
-      #       npm run api:build
-  # deploy step will run only after manual approval
-  deploy:
-    docker:
-      - image: "cimg/base:stable"
-      # more setup needed for aws, node, elastic beanstalk
-    steps:
-      - node/install:
-          node-version: '14.15' 
-      - eb/setup
-      - aws-cli/setup
-      - checkout
+      Build the backend API      
       - run:
-          name: Deploy App
-          # Install, build, deploy in both apps
+          name: API Build
           command: |
-            echo "#  Install, build, deploy in both apps"
-            npm run frontend:deploy
+            echo "Build the backend API"
+            npm run api:build
+
+      - run:
+          name: Test Frontend
+          command: /
+            echo "Test frontend"
+            npm run frontend:test
+      - run:
+          name: Deploy app
+          # Install, build, deploy in both apps
+          command: /
+            echo "Deploy app"
+            npm run deploy
+
+
+#   # deploy step will run only after manual approval
+#   deploy:
+#     docker:
+#       - image: "cimg/base:stable"
+#       # more setup needed for aws, node, elastic beanstalk
+#     steps:
+#       - node/install:
+#           node-version: '14.15' 
+#       - eb/setup
+#       - aws-cli/setup
+#       - checkout
+#       - run:
+#           name: Deploy App
+#           # Install, build, deploy in both apps
+#           command: |
+#             echo "#  Install, build, deploy in both apps"
+#             npm run frontend:deploy
             
-workflows:
-  udagram:
-    jobs:
-      - build
-      - hold:
-          filters:
-            branches:
-              only:
-                - master
-          type: approval
-          requires:
-            - build
-      - deploy:
-          requires:
-            - hold
+# workflows:
+#   udagram:
+#     jobs:
+#       - build
+#       - hold:
+#           filters:
+#             branches:
+#               only:
+#                 - main
+#           type: approval
+#           requires:
+#             - build
+#       - deploy:
+#           requires:
+#             - hold
