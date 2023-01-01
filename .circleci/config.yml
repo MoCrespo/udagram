@@ -55,8 +55,6 @@ jobs:
             echo "Deploy frontend app"
             npm run frontend:deploy
 
-            echo "Deploy api app"
-            npm run api:deploy
 
 
 #   # deploy step will run only after manual approval
