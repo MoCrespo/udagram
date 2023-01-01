@@ -52,8 +52,8 @@ jobs:
           name: Deploy app
           # Install, build, deploy in both apps
           command: |
-            echo "Deploy app"
-            npm run deploy
+            echo "Deploy frontend app"
+            npm run frontend:deploy
 
 
 #   # deploy step will run only after manual approval
