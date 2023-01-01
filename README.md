@@ -47,4 +47,4 @@ There are no Unit test on the back-end
 
 
 ## Project Link
-    [Udagram](http://udagram-s3.s3-website-us-east-1.amazonaws.com/home)
+[Udagram](http://udagram-s3.s3-website-us-east-1.amazonaws.com/home)
