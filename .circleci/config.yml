@@ -50,13 +50,13 @@ jobs:
 
       - run:
           name: Test Frontend
-          command: /
+          command: |
             echo "Test frontend"
             npm run frontend:test
       - run:
           name: Deploy app
           # Install, build, deploy in both apps
-          command: /
+          command: |
             echo "Deploy app"
             npm run deploy
 
