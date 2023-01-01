@@ -41,7 +41,7 @@ jobs:
           command: |
             echo "Build the frontend app"
             npm run frontend:build
-      Build the backend API      
+     # Build the backend API      
       - run:
           name: API Build
           command: |
