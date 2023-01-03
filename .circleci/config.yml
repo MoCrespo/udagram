@@ -69,6 +69,7 @@ jobs:
     steps:
       - node/install:
           node-version: '14.15' 
+      - eb/setup
       - aws-cli/setup
       - checkout
       - run:
@@ -78,7 +79,7 @@ jobs:
             echo "#  Install, build, deploy in both apps"
             npm run frontend:deploy
             npm run api:eb
-            npm run api:build
+            npm run build
             npm run api:deploy
             
 workflows:
