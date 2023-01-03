@@ -79,7 +79,7 @@ jobs:
             echo "#  Install, build, deploy in both apps"
             npm run frontend:deploy
             npm run api:eb
-            npm run build
+            npm run api:build
             npm run api:deploy
             
 workflows:
