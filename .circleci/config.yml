@@ -48,45 +48,45 @@ jobs:
             echo "Build the backend API"
             npm run api:build
 
+      # - run:
+      #     name: Deploy app
+      #     # Install, build, deploy in both apps
+      #     command: |
+      #       echo "Deploy frontend app"
+      #       npm run frontend:deploy
+
+
+
+  # deploy step will run only after manual approval
+  deploy:
+    docker:
+      - image: "cimg/base:stable"
+      # more setup needed for aws, node, elastic beanstalk
+    steps:
+      - node/install:
+          node-version: '14.15' 
+      - eb/setup
+      - aws-cli/setup
+      - checkout
       - run:
-          name: Deploy app
+          name: Deploy App
           # Install, build, deploy in both apps
           command: |
-            echo "Deploy frontend app"
+            echo "#  Install, build, deploy in both apps"
             npm run frontend:deploy
-
-
-
-#   # deploy step will run only after manual approval
-#   deploy:
-#     docker:
-#       - image: "cimg/base:stable"
-#       # more setup needed for aws, node, elastic beanstalk
-#     steps:
-#       - node/install:
-#           node-version: '14.15' 
-#       - eb/setup
-#       - aws-cli/setup
-#       - checkout
-#       - run:
-#           name: Deploy App
-#           # Install, build, deploy in both apps
-#           command: |
-#             echo "#  Install, build, deploy in both apps"
-#             npm run frontend:deploy
             
-# workflows:
-#   udagram:
-#     jobs:
-#       - build
-#       - hold:
-#           filters:
-#             branches:
-#               only:
-#                 - main
-#           type: approval
-#           requires:
-#             - build
-#       - deploy:
-#           requires:
-#             - hold
+workflows:
+  udagram:
+    jobs:
+      - build
+      - hold:
+          filters:
+            branches:
+              only:
+                - main
+          type: approval
+          requires:
+            - build
+      - deploy:
+          requires:
+            - hold
