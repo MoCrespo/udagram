@@ -27,23 +27,12 @@ import { V0_FEED_MODELS, V0_USER_MODELS } from "./controllers/v0/model.index";
   const app = express();
   const port = process.env.PORT || 8080;
 
-  app.use(bodyParser.json());
+  app.use(express.json());
 
   // app.use(cors());
   // We set the CORS origin to * so that we don't need to
   // worry about the complexities of CORS. 
-  app.use(cors({
-    "allowedHeaders": [
-      'Origin', 'X-Requested-With',
-      'Content-Type', 'Accept',
-      'X-Access-Token', 'Authorization', 'Access-Control-Allow-Origin',
-      'Access-Control-Allow-Headers',
-      'Access-Control-Allow-Methods'
-    ],
-    "methods": 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
-    "preflightContinue": true,
-    "origin": '*',
-  }));
+  app.use(cors());
 
   app.use("/api/v0/", IndexRouter);
 
