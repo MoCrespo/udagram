@@ -3,6 +3,12 @@
 This application is provided to you as an alternative starter project if you do not wish to host your own code done in the previous courses of this nanodegree. The udagram application is a fairly simple application that includes all the major components of a Full-Stack web application.
 
 
+## message for reviewer
+the app runs successfully on both side frontend and backend but when I try to create a user the backend return error from sequelize, ( the ORM package ) 
+I don't know how to fix it.
+you can install the repo and install the dependencies and try it if you have any idea how to fix it hopes to share it with me thanks.
+
+
 
 ### Dependencies
 
