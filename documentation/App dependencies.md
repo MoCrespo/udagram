@@ -48,9 +48,9 @@
 
 `@types/jasminewd2` : Typescript definitions for jasminewd2
 
-`@types/node"` : Typescript definitions for Node js
+`@types/node` : Typescript definitions for Node js
 
-`@typescript-eslint/eslint-plugin"` : Typescript plugin for eslint
+`@typescript-eslint/eslint-plugin` : Typescript plugin for eslint
 
 `@typescript-eslint/parser` : An eslint custom parser 
 
@@ -64,7 +64,8 @@
 
 `karma-chrome-launcher` : A karma plugin launcher for chrome 
 
-`karma-coverage-istanbul-reporter` : 
+`karma-coverage-istanbul-reporter` : A karma reporter that uses the latest istanbul 1.x APIs (with full sourcemap support) to report coverage.
+
 
 `karma-jasmine` : A Karma plugin adapter for jasmine
 
