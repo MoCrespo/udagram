@@ -8,7 +8,7 @@ git push
 ```
 
 ## Step two (ci/cd)
-1. Circleci senses change only on the main branch and spin up the environment 
+- Circleci senses change only on the main branch and spin up the environment 
 
 ``` yaml 
 
@@ -20,8 +20,8 @@ git push
 
 ```
 
-1. Circleci Preparing environment variables 
-1. Install Node.js 14.15 
+- Circleci Preparing environment variables 
+- Install Node.js 14.15 
 
 ``` yaml 
 jobs:
@@ -33,28 +33,28 @@ jobs:
             node-version: '14.15'
 ```
 
-1. Setting up Elastic Beanstalk CLI
+- Setting up Elastic Beanstalk CLI
 
 ``` yaml 
     - eb/setup
 ```
 
 
-1. Install AWS CLI latest 
+- Install AWS CLI latest 
 
 ``` yaml 
     - aws-cli/setup
 ```
 
-1. Configure AWS Access Key ID
+- Configure AWS Access Key ID
 
-1. Checkout code 
+- Checkout code 
 
 ``` yaml
     - checkout
 ```
 
-1. Install front-End Dependencies 
+- Install front-End Dependencies 
 
 ``` yaml
  - run:
@@ -69,7 +69,7 @@ jobs:
 ```
 
 
-1. Install API Dependencies 
+- Install API Dependencies 
 
 ``` yaml 
  - run:
@@ -82,7 +82,7 @@ jobs:
            npm run api:install
 ```
 
-1. Front-end Build 
+- Front-end Build 
 
 ``` yaml 
 - run:
@@ -92,7 +92,7 @@ jobs:
             npm run frontend:build
 ```
 
-1. EB config 
+- EB config 
 
 ``` yaml 
  - run:
@@ -102,7 +102,7 @@ jobs:
 
 ```
 
-1. APi Build 
+- APi Build 
 
 ``` yaml 
 
@@ -113,7 +113,7 @@ jobs:
             npm run api:build
 ```
 
-1. Circleci hold to approve the deployment
+- Circleci hold to approve the deployment
 
 ``` yaml 
 workflows:
@@ -131,7 +131,7 @@ workflows:
 
 ```
 
-1. after approval, Circleci start to deploy
+- after approval, Circleci start to deploy
 
 ``` yaml 
 workflows:
@@ -151,7 +151,7 @@ workflows:
             - hold
 ```
 
-1. Install Node.js 14.15 and Elastic Beanstalk CLI, AWS CLI Setup, and Checkout code 
+- Install Node.js 14.15 and Elastic Beanstalk CLI, AWS CLI Setup, and Checkout code 
 
 ``` yaml 
 deploy:
@@ -167,7 +167,7 @@ deploy:
 
 ```
 
-1. Deploy in both apps 
+- Deploy in both apps 
 
 ``` yaml 
 - run:
